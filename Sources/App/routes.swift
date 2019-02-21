@@ -11,10 +11,14 @@ public func routes(_ router: Router) throws {
     router.get("hello") { req in
         return "Hello, world!"
     }
-
-    // Example of configuring a controller
-    let todoController = TodoController()
-    router.get("todos", use: todoController.index)
-    router.post("todos", use: todoController.create)
-    router.delete("todos", Todo.parameter, use: todoController.delete)
+    
+    router.post("api", String.parameter, "games") { req -> Future<Game> in
+        let game = try req.content.syncDecode(Game.self)
+        return game.save(on: req)
+    }
+    
+    // Get all games for the give team
+    router.get("api", String.parameter, "games") { req -> Future<[Game]> in
+        return Game.query(on: req).all()
+    }
 }
