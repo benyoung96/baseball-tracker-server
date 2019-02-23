@@ -29,5 +29,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     var migrations = MigrationConfig()
     migrations.add(model: Game.self, database: .psql)
     migrations.add(model: Player.self, database: .psql)
+    migrations.add(model: Team.self, database: .psql)
     services.register(migrations)
 }

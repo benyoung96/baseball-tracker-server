@@ -14,13 +14,11 @@ final class Game: Content {
     var home: String
     var away: String
     var datetime: String
-    var dayOfWeek: String
     
-    init(home: String, away: String, datetime: String, dayOfWeek: String) {
+    init(home: String, away: String, datetime: String) {
         self.home = home
         self.away = away
         self.datetime = datetime
-        self.dayOfWeek = dayOfWeek
     }
 }
 
