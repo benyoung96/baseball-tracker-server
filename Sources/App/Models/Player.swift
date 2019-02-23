@@ -6,10 +6,11 @@
 //
 
 import Vapor
-import FluentSQLite
+import FluentPostgreSQL
 
-final class Player: Codable {
-    var id: Int?
+final class Player: Content {
+    var id: UUID?
+    
     var number: Int
     var firstName: String
     var lastName: String
@@ -23,6 +24,5 @@ final class Player: Codable {
     }
 }
 
-extension Player: SQLiteModel {}
-extension Player: Content {}
+extension Player: PostgreSQLUUIDModel {}
 extension Player: Migration {}

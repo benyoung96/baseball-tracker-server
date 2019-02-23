@@ -15,9 +15,13 @@ public func routes(_ router: Router) throws {
     }
     
     // Route to post a player for the given team
-    router.post("api", String.parameter, "player") { req -> Future<Player> in
-        let player = try req.content.syncDecode(Player.self)
-        return player.save(on: req)
+//    router.post("api", String.parameter, "player") { req -> Future<Player> in
+//        let player = try req.content.syncDecode(Player.self)
+//        return player.save(on: req)
+//    }
+    
+    router.post(Player.self, at: "api", String.parameter, "player") { (request, player)  in
+        return player.save(on: request)
     }
     
     // Route to get all players on a teams 25 man roster
