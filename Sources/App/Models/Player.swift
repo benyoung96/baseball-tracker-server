@@ -15,12 +15,14 @@ final class Player: Content {
     var firstName: String
     var lastName: String
     var team: String
+    var position: String
     
-    init(number: Int, firstName: String, lastName: String, team: String) {
+    init(number: Int, firstName: String, lastName: String, team: String, position: String) {
         self.number = number
         self.firstName = firstName
         self.lastName = lastName
         self.team = team
+        self.position = position
     }
 }
 
